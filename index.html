@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>ToDo App</title>
+  </head>
+  <script>
+    function Submit() {
+      fetch("http://localhost:3000/POST/todos", {
+        method: "POST",
+        body: JSON.stringify({
+          title: "Hello",
+          description: "World",
+        }),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    }
+  </script>
+  <body>
+    <div>
+      <h1>ToDo APP</h1>
+    </div>
+    <div>
+      <div>
+        ToDo Title
+        <input type="text" />
+      </div>
+      <div>
+        ToDo Description
+        <input type="text" />
+      </div>
+      <div>
+        <button onclick="Submit()">Add ToDo</button>
+      </div>
+    </div>
+  </body>
+</html>
