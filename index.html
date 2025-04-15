@@ -4,11 +4,13 @@
   </head>
   <script>
     function Submit() {
+      var title = document.getElementById("title").value;
+      var description = document.getElementById("description").value;
       fetch("http://localhost:3000/POST/todos", {
         method: "POST",
         body: JSON.stringify({
-          title: "Hello",
-          description: "World",
+          title: title,
+          description: description,
         }),
         headers: { "Content-Type": "application/json" },
       })
@@ -27,11 +29,11 @@
     <div>
       <div>
         ToDo Title
-        <input type="text" />
+        <input type="text" id="title" />
       </div>
       <div>
         ToDo Description
-        <input type="text" />
+        <input type="text" id="description" />
       </div>
       <div>
         <button onclick="Submit()">Add ToDo</button>
